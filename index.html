@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex - Safe Room Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+        .apex-glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen p-4">
+    <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
+            <!-- Formulário -->
+            <div class="bg-slate-800 p-8 rounded-lg apex-glow">
+                <h1 class="text-3xl font-bold text-blue-400 mb-6">APEX SYSTEM</h1>
+                <h2 class="text-xl font-semibold mb-6">Criar Nova Safe Room</h2>
+                
+                <form class="space-y-4" onsubmit="return false;">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Nome do Bunker</label>
+                        <input type="text" placeholder="Digite o nome do Bunker" class="w-full bg-slate-700 border border-blue-500 rounded px-4 py-2 text-white focus:outline-none focus:border-blue-300">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Valor (Tokens)</label>
+                        <input type="number" placeholder="0" class="w-full bg-slate-700 border border-blue-500 rounded px-4 py-2 text-white focus:outline-none focus:border-blue-300">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Cor da Room</label>
+                        <input type="color" value="#3b82f6" class="w-full h-12 bg-slate-700 border border-blue-500 rounded cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Hora de Início</label>
+                        <input type="time" class="w-full bg-slate-700 border border-blue-500 rounded px-4 py-2 text-white focus:outline-none focus:border-blue-300">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Hora de Término</label>
+                        <input type="time" class="w-full bg-slate-700 border border-blue-500 rounded px-4 py-2 text-white focus:outline-none focus:border-blue-300">
+                    </div>
+
+                    <button type="button" class="w-full bg-blue-600 hover:bg-blue-500 font-bold py-3 rounded mt-6 transition">
+                        ✓ REGISTRAR ROOM
+                    </button>
+                </form>
+            </div>
+
+            <!-- Preview -->
+            <div class="bg-slate-800 p-8 rounded-lg apex-glow">
+                <h2 class="text-xl font-semibold mb-6">Preview da Room</h2>
+                
+                <div class="border-l-8 border-blue-400 bg-slate-700 p-6 rounded">
+                    <div class="text-2xl font-bold italic text-blue-300 mb-4">SAFE ROOM APX-XXXX</div>
+                    
+                    <div class="space-y-3 text-sm">
+                        <div>
+                            <span class="text-gray-400">ID:</span>
+                            <span class="text-blue-400 font-bold ml-2">XXXXXX</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400">Status:</span>
+                            <span class="text-green-400 font-bold ml-2">● ATIVA</span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400">Tokens:</span>
+                            <span class="text-yellow-400 font-bold ml-2">0</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="mt-6 px-4 py-2 bg-green-600 hover:bg-green-500 rounded text-sm font-bold transition">
+                        ATIVAR SEGURANÇA
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listagem de Rooms -->
+        <div class="mt-10 bg-slate-800 p-8 rounded-lg apex-glow">
+            <h2 class="text-2xl font-bold mb-6">Rooms Registradas</h2>
+            <div id="roomsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-slate-700 p-4 rounded border border-slate-600 text-center text-gray-400">
+                    Nenhuma room registrada
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
